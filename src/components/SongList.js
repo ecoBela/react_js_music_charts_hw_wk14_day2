@@ -21,12 +21,9 @@ const SongList = ({songs, loaded}) =>{
 
     return(
         <Fragment>
-            <p>This will contain song details</p>
             <ul>
                {songNodes}
             </ul>
-            
-            
         </Fragment>
     )
 };

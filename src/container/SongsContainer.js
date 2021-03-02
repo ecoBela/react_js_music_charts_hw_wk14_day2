@@ -3,7 +3,7 @@ import SongList from '../components/SongList';
 
 const SongsContainer = () => {
 
-    const [songs, setSongs] = useState(1);
+    const [songs, setSongs] = useState([]);
     const [loaded, setLoaded] = useState(false);
 
     const getSongs = () => {
@@ -21,8 +21,11 @@ const SongsContainer = () => {
 
     return(
         <>
-        <h2>This will contain a list</h2>
-        <SongList songs={songs} loaded={loaded}/>
+        <h2>Chart List</h2>
+        <SongList
+        songs={songs}
+        loaded={loaded} 
+        />
         </>
     )
 }

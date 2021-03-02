@@ -3,9 +3,11 @@ import React, { Fragment } from 'react';
 const SongDetails = ({songObject}) =>{
     return(
         <Fragment>
-            <p>{songObject.index}</p>
-            <p>{songObject.title}</p>
-            <p>{songObject.artist}</p>
+            <li>
+                <span>{songObject.index}. </span>
+                <span>{songObject.title} - </span>
+                <span> {songObject.artist}</span>
+            </li>
         </Fragment>
     )
 }
