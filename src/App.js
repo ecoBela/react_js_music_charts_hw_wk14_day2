@@ -1,12 +1,11 @@
 import React, { Fragment } from 'react';
 import './App.css';
+import SongsContainer from "./container/SongsContainer";
+
 
 function App() {
   return (
-    < >
-      <ChartList>List will appear here</ChartList>
-      
-    </>
+      <SongsContainer/>
   );
 }
 
