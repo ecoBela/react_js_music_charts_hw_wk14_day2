@@ -3,29 +3,26 @@ import SongList from '../components/SongList';
 
 const SongsContainer = () => {
 
-    const [song, setSong] = useState(1);
+    const [songs, setSongs] = useState(1);
     const [loaded, setLoaded] = useState(false);
 
     const getSongs = () => {
         console.log("getting song info")
         fetch('https://itunes.apple.com/gb/rss/topsongs/limit=20/json')
         .then(res => res.json())
-        .then(data => setSong(data))
+        .then(data => setSongs(data.feed.entry))
+        .then(() => setLoaded(true))
     }
 
     useEffect(() => {
         getSongs()
     }, [])
 
-    // useEffect( () => {
-    //     getLaunch();
-    // }, [selectedLaunchId])
-
 
     return(
         <>
         <h2>This will contain a list</h2>
-        <SongList/>
+        <SongList songs={songs} loaded={loaded}/>
         </>
     )
 }
