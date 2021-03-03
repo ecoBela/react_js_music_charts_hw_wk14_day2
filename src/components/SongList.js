@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import SongDetails from './SongDetails';
 
-const SongList = ({songs, loaded}) =>{
+const SongList = ({songs, loaded, handleSelectedSong}) =>{
     
     if(!loaded){return <p>Loading....</p>}
 
@@ -16,6 +16,7 @@ const SongList = ({songs, loaded}) =>{
         }
         } 
         key={song.id.attributes['im:id']}
+        handleSelectedSong={handleSelectedSong}
         />
     )})
 

@@ -1,10 +1,12 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import SongList from '../components/SongList';
+import SongArtwork from '../components/SongArtwork';
 
 const SongsContainer = () => {
 
     const [songs, setSongs] = useState([]);
     const [loaded, setLoaded] = useState(false);
+    const [selectedSong, setSelectedSong] = useState({});
 
     const getSongs = () => {
         console.log("getting song info")
@@ -16,8 +18,20 @@ const SongsContainer = () => {
 
     useEffect(() => {
         getSongs()
+        setSelectedSong(songs[0])
     }, [])
 
+    // song.find(( === id) => {})
+
+    // setSelectedSong(songThatWeWant)
+    // onClickSongDetail
+
+    const handleSelectedSong = (id) => {
+        setSelectedSong(
+        songs.find((song) => (song.id.attributes['im:id'] == id))
+        );
+	};
+    
 
     return(
         <>
@@ -25,9 +39,12 @@ const SongsContainer = () => {
         <SongList
         songs={songs}
         loaded={loaded} 
+        handleSelectedSong={(id) => {handleSelectedSong(id)}}
         />
+        <SongArtwork selectedSong={selectedSong} />
         </>
     )
 }
+
 
 export default SongsContainer;
